@@ -1,0 +1,68 @@
+<project name="javaformattest">
+	<property name="hibernate-core.jar" location="../../../../hibernate-3.1/hibernate3.jar" />
+	<property name="hibernate-core.home" location="../../../../Hibernate3" />
+	<property name="hibernate-core.lib.dir" location="${hibernate-core.home}/lib" />
+	<property name="build.dir" location="../../build/javaformattest" />
+	<property file="../../etc/hibernate.properties" />
+
+
+
+	<path id="tasks.classpath">
+		<pathelement path="../../build/eclipse" />
+		<pathelement path="../../build/classes" />
+
+		<fileset dir="${hibernate-core.lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+
+		<pathelement location="${hibernate-core.jar}" />
+		<pathelement path="../../lib/freemarker.jar" />
+		
+		<fileset dir="../../lib">
+			<include name="**/*eclipse*.jar" />
+		</fileset>
+		<pathelement path="${hibernate-core.home}\jdbc\hsqldb.jar" />
+	</path>
+	
+	<target name="cleanup">
+		<delete dir="${build.dir}"/>
+	</target>
+	
+	<target name="prepare">
+		<copy todir="${build.dir}">
+		  <fileset dir="." includes="formatting/**/*"/>
+		</copy>
+	</target>
+	
+	<target name="fileset">		
+		<taskdef name="javaformatter" classname="org.hibernate.tool.ant.JavaFormatterTask" classpathref="tasks.classpath"/>
+				
+		<javaformatter> 
+		   <fileset dir="${build.dir}">
+		   	   <include name="formatting/**/*"/>
+		   	</fileset>
+		</javaformatter>
+	</target>
+	
+	<target name="configtest">		
+		<taskdef name="javaformatter" classname="org.hibernate.tool.ant.JavaFormatterTask" classpathref="tasks.classpath"/>
+				
+		<javaformatter configurationfile="emptyconfig.properties"> 
+		   <fileset dir="${build.dir}">
+		   	   <include name="formatting/**/*"/>
+		   	</fileset>
+		</javaformatter>
+	</target>
+	
+	<target name="noconfigtest">		
+			<taskdef name="javaformatter" classname="org.hibernate.tool.ant.JavaFormatterTask" classpathref="tasks.classpath"/>
+					
+			<javaformatter> 
+			   <fileset dir="${build.dir}">
+			   	   <include name="formatting/**/*"/>
+			   	</fileset>
+			</javaformatter>
+	</target>
+		
+
+</project>

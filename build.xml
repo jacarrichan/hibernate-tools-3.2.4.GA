@@ -1,5 +1,10 @@
 <!--
   HibernateTools ANT build script.
+  
+  如果控制台输出乱码，解决方法是:
+  显示 Ant 视图，右键——Run As——External Tool configurations
+  common  选项卡——encoding 改成GBK或者UTF-8
+  
 -->
 
 <project name="HibernateTools" default="dist" basedir=".">

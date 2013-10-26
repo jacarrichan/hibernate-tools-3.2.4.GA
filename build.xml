@@ -80,7 +80,11 @@
             </copy>      
     </target>   
  
-    <target name="dist" depends="jartest,common-build.dist"/>
+    <target name="dist" depends="jartest,common-build.dist">
+    	<subant inheritall="false">
+          <fileset dir="." includes="*/build.xml" excludes="avalon/build.xml,*eclipse*/build.xml,generictemplates/*"/>
+    	</subant>
+	</target>
         
 <!--    <target name="genjar" depends="init">
         <taskdef resource="genjar.properties" classpath="C:\work\products\GenJar\genjar.jar"/>   

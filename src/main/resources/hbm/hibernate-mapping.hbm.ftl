@@ -3,7 +3,7 @@
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<!-- Generated ${date} by Hibernate Tools ${version} -->
+<!-- Generated ${date} by Hibernate Tools ${version} 772929989 -->
 <#if hmgs?exists && hmgs.hasNonDefaultSettings()>
 <hibernate-mapping
 <#if hmgs.hasDefaultPackage()>

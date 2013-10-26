@@ -2,9 +2,11 @@ package org.hibernate.tool.hbm2x;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.StringWriter;
+import java.io.Writer;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -31,14 +33,15 @@ public class TemplateProducer {
 			log.warn("Generated output is empty. Skipped creation for file " + destination);
 			return;
 		}
-		FileWriter fileWriter = null;
+		Writer fileWriter = null; //		FileWriter fileWriter = null;
+		
 		try {
 			
 			th.ensureExistence( destination );    
 	     
 			ac.addFile(destination, fileType);
 			log.debug("Writing " + identifier + " to " + destination.getAbsolutePath() );
-			fileWriter = new FileWriter(destination);
+			fileWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(destination), "UTF-8")); //fileWriter = new FileWriter(destination);
             fileWriter.write(tempResult);			
 		} 
 		catch (Exception e) {

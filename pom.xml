@@ -132,5 +132,23 @@
 				<directory>src/testsupport/templates</directory>
 			</testResource>
 		</testResources>
+		<extensions>
+			<extension>
+				<groupId>org.jvnet.wagon-svn</groupId>
+				<artifactId>wagon-svn</artifactId>
+				<version>1.12</version>
+			</extension>
+		</extensions>
 	</build>
+	<distributionManagement>
+		<repository>
+			<id>maven-X-repo</id>
+			<!-- setting.xml有针对此id的server节点配置,部署命令是mvn deploy -->
+			<url>svn:https://myfirst-cmcc.googlecode.com/svn/maven-repo/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>maven-X-repo</id>
+			<url>svn:https://myfirst-cmcc.googlecode.com/svn/maven-repo/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 </project>

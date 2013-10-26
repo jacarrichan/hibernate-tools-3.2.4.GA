@@ -8,5 +8,5 @@ you can download  somes  jar from
 http://download.csdn.net/detail/jacarri/6453485
 
 
-you can use this jar by this mvn repository
+you can use this jar by this mvn repository  
 https://myfirst-cmcc.googlecode.com/svn/maven-repo/releases/
